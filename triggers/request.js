@@ -11,8 +11,26 @@ const triggerRequest = (z, bundle) => {
     //   direction: 'desc'
     // }
   });
+  // return responsePromise
+  //   .then(response => JSON.parse(response.content));
+
   return responsePromise
-    .then(response => JSON.parse(response.content));
+    .then(response => {
+
+    //var results = JSON.parse(bundle.request.data).results // array of contact objects
+    var results = JSON.parse(response.content);
+
+      return results.map(function(request){
+        request.id = request._id
+        delete request._id
+        return request
+      });
+
+    });
+    // JSON.parse(response.content));
+    
+
+
 };
 
 module.exports = {
