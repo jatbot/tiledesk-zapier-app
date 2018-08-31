@@ -1,0 +1,24 @@
+{
+  "name": "tiledesk-zapier-app",
+  "version": "1.0.0",
+  "description": "Tiledesk app for the Zapier platform.",
+  "repository": "tiledesk/tiledesk-zapier-app",
+  "homepage": "https:/www.tiledesk.com",
+  "author": "Andrea Leo <andrea.leo@frontiere21.it>",
+  "license": "AGPL",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --recursive"
+  },
+  "engines": {
+    "node": "8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "zapier-platform-core": "7.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "should": "^13.2.0"
+  }
+}
