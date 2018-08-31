@@ -32,7 +32,7 @@ const App = {
   // If you want your trigger to show up, you better include it here!
   triggers: {
     // [repoTrigger.key]: repoTrigger,
-    [issueTrigger.key]: requestTrigger,
+    [requestTrigger.key]: requestTrigger,
   },
 
   // If you want your searches to show up, you better include it here!
@@ -41,7 +41,7 @@ const App = {
 
   // If you want your creates to show up, you better include it here!
   creates: {
-    [issueCreate.key]: requestCreate,
+    [requestCreate.key]: requestCreate,
   }
 };
 
