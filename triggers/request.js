@@ -3,7 +3,7 @@ const sample = require('../samples/sample_issue');
 const triggerRequest = (z, bundle) => {
   const responsePromise = z.request({
     method: 'GET',
-    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/requests`,
+    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/requests?status=1000`,
     // params: {
     //   filter: bundle.inputData.filter,
     //   state: bundle.inputData.state,
@@ -17,10 +17,13 @@ const triggerRequest = (z, bundle) => {
   return responsePromise
     .then(response => {
 
+	z.console.log('response.content', response.content);
+       // z.console.log('response.content[requests]', response.content['requests']);	
     //var results = JSON.parse(bundle.request.data).results // array of contact objects
     var results = JSON.parse(response.content);
+    z.console.log('results.requests', results.requests);	
 
-      return results.map(function(request){
+      return results.requests.map(function(request){
         request.id = request._id
         delete request._id
         return request
@@ -31,7 +34,7 @@ const triggerRequest = (z, bundle) => {
     
 
 
-};
+}
 
 module.exports = {
   key: 'request',
