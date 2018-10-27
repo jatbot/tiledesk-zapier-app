@@ -1,4 +1,4 @@
-const sample = require('../samples/sample_issue');
+
 
 const createRequest = (z, bundle) => {
   const responsePromise = z.request({
@@ -37,6 +37,6 @@ module.exports = {
      // {key: 'status', label:'status', required: true}
     ],
     perform: createRequest,
-    // sample: sample
+
   }
 };
