@@ -1,6 +1,7 @@
 // const repoTrigger = require('./triggers/repo');
 const requestCreate = require('./creates/request');
 const requestTrigger = require('./triggers/request');
+const requestClosedTrigger = require('./triggers/request-closed');
 const leadTrigger = require('./triggers/lead');
 const authentication = require('./authentication');
 
@@ -35,6 +36,7 @@ const App = {
     // [repoTrigger.key]: repoTrigger,
     [requestTrigger.key]: requestTrigger,
     [leadTrigger.key]: leadTrigger,
+    [requestClosedTrigger.key]: requestClosedTrigger
   },
 
   // If you want your searches to show up, you better include it here!
