@@ -1,7 +1,7 @@
 const triggerRequest = (z, bundle) => {
   const responsePromise = z.request({
     method: 'GET',
-    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/requests`,
+    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/requests?status=1000`,
     // params: {
     //   filter: bundle.inputData.filter,
     //   state: bundle.inputData.state,
@@ -35,12 +35,12 @@ const triggerRequest = (z, bundle) => {
 }
 
 module.exports = {
-  key: 'request',
-  noun: 'Request',
+  key: 'requestClosed',
+  noun: 'Closed Request',
 
   display: {
-    label: 'New Request',
-    description: 'Triggers on a new request.'
+    label: 'New Closed Request',
+    description: 'Triggers on a new closed request.'
   },
 
   operation: {

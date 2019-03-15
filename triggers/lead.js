@@ -1,7 +1,7 @@
-const triggerRequest = (z, bundle) => {
+const triggerLead = (z, bundle) => {
   const responsePromise = z.request({
     method: 'GET',
-    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/requests`,
+    url: `https://api.tiledesk.com/v1/${bundle.inputData.projectid}/leads`,
     // params: {
     //   filter: bundle.inputData.filter,
     //   state: bundle.inputData.state,
@@ -21,7 +21,7 @@ const triggerRequest = (z, bundle) => {
     var results = JSON.parse(response.content);
     z.console.log('results.requests', results.requests);	
 
-      return results.requests.map(function(request){
+      return results.leads.map(function(request){
         request.id = request._id
         delete request._id
         return request
@@ -35,12 +35,12 @@ const triggerRequest = (z, bundle) => {
 }
 
 module.exports = {
-  key: 'request',
-  noun: 'Request',
+  key: 'lead',
+  noun: 'Lead',
 
   display: {
-    label: 'New Request',
-    description: 'Triggers on a new request.'
+    label: 'New Lead',
+    description: 'Triggers on a new lead.'
   },
 
   operation: {
@@ -49,6 +49,6 @@ module.exports = {
       // {key:'filter', required: false, label: 'Filter', choices: {assigned:'assigned',created:'created',mentioned:'mentioned',subscribed:'subscribed',all:'all'}, helpText:'Default is "assigned"'},
       // {key:'state', required: false, label: 'State', choices: {open:'open',closed:'closed',all:'all'}, helpText:'Default is "open"'}
     ],
-    perform: triggerRequest
+    perform: triggerLead
   }
 };
