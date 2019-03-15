@@ -18,7 +18,7 @@ const triggerRequest = (z, bundle) => {
     .then(response => {
 
     //var results = JSON.parse(bundle.request.data).results // array of contact objects
-    var results = JSON.parse(response.content);
+    var results = JSON.parse(response.content.requests);
 
       return results.map(function(request){
         request.id = request._id
